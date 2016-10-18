@@ -1,0 +1,6 @@
+select fname, lname, weight from patient where weight > 0 ?1
+select d.fname, d.lname from doctor d, patient p where d.patient_id = p.id and timestampdiff(YEAR, p.dob, curdate()) >= 0 ?1
+select p.fname, p.lname, d.dispensed, m.description from patient p, dispenses d, medication m where p.id = d.patient_id and d.prescription_id = m.id and (m.description like '% 0 %' or m.description like '% 1 %')?2
+select avg(timestampdiff(YEAR, dob, curdate())) from patient where weight < 0 ?1
+select m.description, d.dispensed from dispenses d, medication m where d.prescription_id = m.id group by d.dispensed having d.dispensed like '% 0 %'?1
+select d.fname, d.lname from doctor d, prescription p, (select * from patient where (weight * 0.45 / (height*0.025)^2) >= 0 ) as obese_patients where d.id = p.doctor_id and p.patient_id = obese_patients.id?1

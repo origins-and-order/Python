@@ -1,0 +1,6 @@
+Get all the patients first names, last names, and weight where their weight is greater than x
+Get all the doctor's names where their patients are at least x years old
+Get the description of medication where the mg count is x or mg count y
+Get the average age of patients who are less than x lbs
+Get all medications that where dispensed in year (x)
+Get Doctor's first name and last name where his patient's are above or equal x bmi
