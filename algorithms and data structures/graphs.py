@@ -118,7 +118,7 @@ def depth_first_search(g, source):
 
     # while S not empty
     while s:
-        # get first node from the queue
+        # get last node from the stack
         vertex = s.pop(-1)
         # visit vertex's neighbors
         for neighbor in g[vertex]:
