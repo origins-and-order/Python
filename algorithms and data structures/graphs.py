@@ -95,7 +95,7 @@ def breadth_first_search(g, source):
     while q:
 
         # get first node from the queue
-        vertex = q.pop()
+        vertex = q.pop(0)
 
         # visit vertex's neighbors
         for neighbor in g[vertex]:
