@@ -119,7 +119,7 @@ def depth_first_search(g, source):
     # while S not empty
     while s:
         # get last node from the stack
-        vertex = s.pop(-1)
+        vertex = s.pop()
         # visit vertex's neighbors
         for neighbor in g[vertex]:
             if neighbor not in visited:
