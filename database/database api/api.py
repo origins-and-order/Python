@@ -1,9 +1,7 @@
 import mysql.connector
 
 inputs = [line.strip().split(':')[1] for line in open('credentials.txt').readlines()]
-
 cnx = mysql.connector.connect(user=inputs[0], password=inputs[1], host=inputs[2], database=inputs[3])
-
 cursor = cnx.cursor()
 
 # open queries.txt
@@ -18,18 +16,13 @@ def prompt():
     print('[0] Quit')
 
 def query(pick):
-
     statement = str(queries[pick-1][0])
     arguments = list()
-
     for i in xrange(int(queries[pick-1][1])):
         arguments.append(int(input('')))
-
     for x, argument in enumerate(arguments):
         statement = statement.replace(' ' + str(x) + ' ', str(argument))
-
     cursor.execute(statement)
-
     for x, record in enumerate(cursor):
         print x+1,
         for attribute in record:
@@ -42,13 +35,10 @@ print 'Hospital Pharmacy API\n'
 while 1:
     prompt()
     ans = input()
-
     if ans is 0:
         print('Goodbye! :)')
         break
-
     query(ans)
-
 cnx.close()
 
 """
