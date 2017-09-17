@@ -169,7 +169,7 @@ class Crawler(object):
         print 'Pre-computing domain'
 
         # load vertices from links.txt (concurrent search)
-        vertices = set(link.strip() for link in open('links.txt').xreadlines())
+        vertices = set(link.strip() for link in open('links.txt').readlines())
 
         # load vertices to not be visited
         self.visited_urls = vertices
